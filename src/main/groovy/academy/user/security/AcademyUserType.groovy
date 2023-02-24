@@ -6,7 +6,7 @@ enum AcademyUserType {
     CLIENT(null, "ROLE_CLIENT"),
 
 //  Management
-    CLIENT_MANAGER("clientManager", "ROLE_CLIENT_MANAGER");
+    CLIENT_MANAGER("academyClientManager", "ROLE_CLIENT_MANAGER")
 
     String role
 
