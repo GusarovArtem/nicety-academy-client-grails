@@ -15,6 +15,7 @@ class BootStrap {
 
         log.info 'BOOTSTRAPPING start'
 
+        createAcademyRolesIfNotExist()
         createSuperAdminIfNotExists()
 
         log.info 'BOOTSTRAPPING end'
@@ -22,6 +23,19 @@ class BootStrap {
     }
 
     def destroy = {
+    }
+
+    private void createAcademyRolesIfNotExist() {
+        createAcademyRoleIfNotExists(AcademyUserType.CLIENT)
+        createAcademyRoleIfNotExists(AcademyUserType.CLIENT_MANAGER)
+        createAcademyRoleIfNotExists(AcademyUserType.ADMIN)
+    }
+
+    private void createAcademyRoleIfNotExists(AcademyUserType userType) {
+        domainService.createIfNotExists(
+                { AcademyRole.findByAuthority(userType.role) },
+                { new AcademyRole(authority: userType.role) }
+        )
     }
 
     private void createSuperAdminIfNotExists() {
