@@ -54,7 +54,30 @@ grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.logout.alwaysUseDefaultTargetUrl = true
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        [pattern: '/',                 access: ['permitAll']],
+        [pattern: '/',               access: ['permitAll']],
+        [pattern: '/**/show/**',     access: ['permitAll']],
+        [pattern: '/**/selfEdit/**', access: ['permitAll']],
+
+        [pattern: '/**/create',    access: ['ROLE_ADMIN']],
+        [pattern: '/**/save/**',   access: ['ROLE_ADMIN']],
+        [pattern: '/**/edit/**',   access: ['ROLE_ADMIN']],
+        [pattern: '/**/update/**', access: ['ROLE_ADMIN']],
+
+        [pattern: '/index',        access: ['ROLE_ADMIN']],
+
+        [pattern: '/login/**',  access: ['permitAll']],
+        [pattern: '/logout/**', access: ['permitAll']],
+        [pattern: '/error',     access: ['permitAll']],
+
+        [pattern: '/assets/**', access: ['permitAll']],
+        [pattern: '/static/**', access: ['permitAll']],
+        [pattern: '/**/js/**',  access: ['permitAll']],
+        [pattern: '/**/css/**',      access: ['permitAll']],
+        [pattern: '/**/images/**',   access: ['permitAll']],
+        [pattern: '/**/favicon.ico', access: ['permitAll']],
+
+        [pattern: '/language',    access: ['permitAll']],
+        [pattern: '/language/**', access: ['permitAll']]
 ]
 
 grails.plugin.console.csrfProtection.enabled = false
