@@ -1,4 +1,4 @@
-package academy.microservices
+package academy.microservices.listener.course
 
 import academy.course.AcademyCourse
 import io.micronaut.configuration.kafka.annotation.KafkaListener
