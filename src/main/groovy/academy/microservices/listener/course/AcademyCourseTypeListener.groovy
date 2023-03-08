@@ -1,9 +1,11 @@
 package academy.microservices.listener.course
 
 import academy.course.AcademyCourseType
+import grails.gorm.transactions.Transactional
 import io.micronaut.configuration.kafka.annotation.KafkaListener
 import io.micronaut.configuration.kafka.annotation.Topic
 
+@Transactional
 @KafkaListener
 class AcademyCourseTypeListener {
 
