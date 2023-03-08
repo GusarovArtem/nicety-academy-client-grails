@@ -27,8 +27,13 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
-  kafka:
-    bootstrap-servers: localhost:9092
+micronaut:
+  executors:
+    consumer:
+      type: FIXED
+kafka:
+  bootstrap:
+    servers: localhost:9092
 
 
 # Spring Actuator Endpoints are Disabled by Default
