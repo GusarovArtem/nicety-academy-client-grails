@@ -1,6 +1,7 @@
 # Client Microservice for Nicety Academy
 
-![Nicety Academy Microservices Communication Structure](https://user-images.githubusercontent.com/105131547/221430096-46183e9d-f202-4eef-947c-b96c95e34d77.png)
+
+![Nicety Academy Microservices Communication Structure](https://user-images.githubusercontent.com/105131547/224532277-ca0ff150-8e71-4e64-a342-7cb1d801fd3d.png)
 
 
 **Application Service Structure**
