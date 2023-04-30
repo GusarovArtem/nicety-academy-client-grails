@@ -1,4 +1,4 @@
-package academy.microservices.listener.course
+package academy.kafka.listener.course
 
 import academy.course.AcademyCourse
 import grails.gorm.transactions.Transactional
