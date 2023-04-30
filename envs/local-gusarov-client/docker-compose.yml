@@ -19,9 +19,9 @@ services:
   zookeeper:
     image: confluentinc/cp-zookeeper
     ports:
-      - 2181:2181
+      - 2182:2182
     environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_CLIENT_PORT: 2182
       ZOOKEEPER_TICK_TIME: 2000
   kafka:
     image: confluentinc/cp-kafka
@@ -30,7 +30,7 @@ services:
     ports:
       - 9092:9092
     environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2182
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
@@ -39,10 +39,10 @@ services:
   maildev:
     image: djfarrelly/maildev
     restart: "no"
-    command: bin/maildev --web 80 --smtp 1025 --verbose
+    command: bin/maildev --web 80 --smtp 1026 --verbose
     ports:
       - 8383:80
-      - 1025:1025
+      - 1026:1026
   statics:
     image: nginx:1.15.4
     restart: "no"
