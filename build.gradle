@@ -56,6 +56,11 @@ dependencies {
     /* Micronaut Kafka */
     implementation "io.micronaut.kafka:micronaut-kafka:4.3.1"
 
+    /* JWT */
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly    'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly    'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
     /* Dateutil */
     implementation 'org.codehaus.groovy:groovy-dateutil:3.0.15'
 
