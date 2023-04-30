@@ -1,10 +1,11 @@
 package academy.user
 
-import academy.user.field.AcademyEnglishLevel
+
 import academy.user.role.AcademyRole
 import academy.user.role.AcademyUserRole
-import academy.user.role.AcademyUserType
 import org.apache.commons.lang3.StringUtils
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
 
 class AcademyUser {
 
@@ -71,8 +72,10 @@ class AcademyUser {
         name + " " + surname
     }
 
-    Set<AcademyRole> authorities() {
-        AcademyUserRole.findAllByUser(this).collect { it.role } as Set
+    Collection<GrantedAuthority> authorities() {
+        AcademyUserRole.findAllByUser(this).collect {
+            new SimpleGrantedAuthority(it.role.authority)
+        }
     }
 
     def afterLoad() {

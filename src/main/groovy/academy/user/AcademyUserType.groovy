@@ -1,4 +1,4 @@
-package academy.user.role
+package academy.user
 
 enum AcademyUserType {
 
