@@ -1,4 +1,4 @@
-package academy.user.security
+package academy.user.role
 
 import grails.plugin.springsecurity.userdetails.GrailsUser
 import org.springframework.security.core.GrantedAuthority

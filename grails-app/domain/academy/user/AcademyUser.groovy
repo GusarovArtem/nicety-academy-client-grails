@@ -1,9 +1,9 @@
 package academy.user
 
 import academy.user.field.AcademyEnglishLevel
-import academy.user.security.AcademyRole
-import academy.user.security.AcademyUserRole
-import academy.user.security.AcademyUserType
+import academy.user.role.AcademyRole
+import academy.user.role.AcademyUserRole
+import academy.user.role.AcademyUserType
 import org.apache.commons.lang3.StringUtils
 
 class AcademyUser {
