@@ -47,7 +47,7 @@ services:
     image: nginx:1.15.4
     restart: "no"
     ports:
-      - "8083:80"
+      - "8086:80"
     volumes:
       - "~/Documents/business/nicety-academy-enterprise/dev/microservices/nicety-academy-client/envs/local-gusarov-client/academy.nginx:/etc/nginx/nginx.conf"
       - "~/Documents/business/nicety-academy-enterprise/dev/academy-statics:/academy-statics"
