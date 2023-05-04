@@ -1,6 +1,6 @@
 package academy.user
 
-enum AcademyEnglishLevel {
+enum EnglishLevel {
 
     ELEMENTARY("Elementary"),
     PRE_INTERMEDIATE("Pre-Intermediate"),
@@ -10,7 +10,7 @@ enum AcademyEnglishLevel {
 
     String label
 
-    AcademyEnglishLevel(String label) {
+    EnglishLevel(String label) {
         this.label = label
     }
 

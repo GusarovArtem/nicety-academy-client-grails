@@ -3,7 +3,7 @@ package academy.trait
 import grails.util.GrailsNameUtils
 import grails.web.api.WebAttributes
 
-trait AcademyControllerTrait implements WebAttributes {
+trait ControllerTrait implements WebAttributes {
 
     def targetDomainClass() {}
 

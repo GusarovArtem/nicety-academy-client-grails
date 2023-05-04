@@ -1,9 +1,10 @@
 package academy
 
-import academy.user.role.AcademyRole
-import academy.user.role.AcademyUserRole
-import academy.user.AcademyUserType
-import academy.user.staff.administration.AcademyAdmin
+
+import academy.user.UserType
+import academy.user.role.Role
+import academy.user.role.UserRole
+import academy.user.staff.administration.Admin
 
 class BootStrap {
 
@@ -26,27 +27,27 @@ class BootStrap {
     }
 
     private void createAcademyRolesIfNotExist() {
-        createAcademyRoleIfNotExists(AcademyUserType.CLIENT)
-        createAcademyRoleIfNotExists(AcademyUserType.CLIENT_MANAGER)
-        createAcademyRoleIfNotExists(AcademyUserType.ADMIN)
+        createAcademyRoleIfNotExists(UserType.CLIENT)
+        createAcademyRoleIfNotExists(UserType.CLIENT_MANAGER)
+        createAcademyRoleIfNotExists(UserType.ADMIN)
     }
 
-    private void createAcademyRoleIfNotExists(AcademyUserType userType) {
+    private void createAcademyRoleIfNotExists(UserType userType) {
         domainService.createIfNotExists(
-                { AcademyRole.findByAuthority(userType.role) },
-                { new AcademyRole(authority: userType.role) }
+                { Role.findByAuthority(userType.role) },
+                { new Role(authority: userType.role) }
         )
     }
 
     private void createSuperAdminIfNotExists() {
         def SUPER_ADMIN = grailsApplication.config.academy.user.super_admin
-        AcademyAdmin admin
+        Admin admin
 
         domainService.createAllIfNotExist(
-                { AcademyAdmin.findByEmail(SUPER_ADMIN.email) },
+                { Admin.findByEmail(SUPER_ADMIN.email) },
                 [
                         {
-                            admin = new AcademyAdmin(
+                            admin = new Admin(
                                     enabled: true,
                                     createdOn: new Date(),
                                     name     : SUPER_ADMIN.name,
@@ -57,7 +58,7 @@ class BootStrap {
                             )
                         },
                         {
-                            new AcademyUserRole(admin, AcademyRole.findByAuthority(AcademyUserType.ADMIN.role))
+                            new UserRole(admin, Role.findByAuthority(UserType.ADMIN.role))
                         }
                 ]
         )

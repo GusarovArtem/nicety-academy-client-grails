@@ -1,15 +1,15 @@
 package academy.user.staff.management.client
 
-import academy.user.AcademyUserControllerTrait
-import academy.user.staff.management.AcademyClientManager
+import academy.user.UserControllerTrait
+import academy.user.staff.management.ClientManager
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
-class AcademyClientManagerController implements AcademyUserControllerTrait {
+class ClientManagerController implements UserControllerTrait {
 
     def userDomainClass() {
-        return AcademyClientManager
+        return ClientManager
     }
 
     def index(Integer max) {
@@ -17,7 +17,7 @@ class AcademyClientManagerController implements AcademyUserControllerTrait {
     }
 
     @Secured(['ROLE_ADMIN','ROLE_CLIENT_MANAGER'])
-    def show(AcademyClientManager userInstance) {
+    def show(ClientManager userInstance) {
         _show(userInstance)
     }
 
@@ -26,27 +26,27 @@ class AcademyClientManagerController implements AcademyUserControllerTrait {
     }
 
     @Transactional
-    def save(AcademyClientManager userInstance) {
+    def save(ClientManager userInstance) {
         _save(userInstance)
     }
 
-    def edit(AcademyClientManager userInstance) {
+    def edit(ClientManager userInstance) {
         _edit(userInstance)
     }
 
     @Secured(['ROLE_CLIENT_MANAGER'])
-    def selfEdit(AcademyClientManager userInstance) {
+    def selfEdit(ClientManager userInstance) {
         _selfEdit(userInstance)
     }
 
     @Transactional
-    def update(AcademyClientManager userInstance) {
+    def update(ClientManager userInstance) {
         _update(userInstance)
     }
 
     @Transactional
     @Secured(['ROLE_CLIENT_MANAGER'])
-    def selfUpdate(AcademyClientManager userInstance) {
+    def selfUpdate(ClientManager userInstance) {
         _selfUpdate(userInstance)
     }
 

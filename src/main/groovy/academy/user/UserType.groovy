@@ -1,6 +1,6 @@
 package academy.user
 
-enum AcademyUserType {
+enum UserType {
 
 //  Client
     CLIENT(null, "ROLE_CLIENT"),
@@ -16,7 +16,7 @@ enum AcademyUserType {
 
     String controller
 
-    AcademyUserType(String controller, String role) {
+    UserType(String controller, String role) {
         this.controller = controller
         this.role = role
     }

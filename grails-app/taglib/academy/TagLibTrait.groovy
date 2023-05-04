@@ -4,7 +4,7 @@ import groovy.xml.MarkupBuilder
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank
 
-trait AcademyTagLibTrait {
+trait TagLibTrait {
 
     String randomId() {
         def uuid = UUID.randomUUID()

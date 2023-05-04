@@ -1,26 +1,27 @@
 package academy.kafka.listener.course
 
-import academy.course.AcademyCourse
+
+import academy.course.Course
 import grails.gorm.transactions.Transactional
 import io.micronaut.configuration.kafka.annotation.KafkaListener
 import io.micronaut.configuration.kafka.annotation.Topic
 
 @Transactional
 @KafkaListener
-class AcademyCourseListener {
+class CourseListener {
 
     @Topic('createCourse')
-    void createCourse(AcademyCourse course) {
+    void createCourse(Course course) {
         course.save flush: true
     }
 
     @Topic('updateCourse')
-    void updateCourse(AcademyCourse course) {
+    void updateCourse(Course course) {
         course.save flush: true
     }
 
     @Topic('deleteCourse')
     void deleteCourse(Long id) {
-        AcademyCourse.findById(id).delete()
+        Course.findById(id).delete()
     }
 }

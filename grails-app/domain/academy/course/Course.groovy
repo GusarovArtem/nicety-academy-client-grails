@@ -1,12 +1,12 @@
 package academy.course
 
-class AcademyCourse {
+class Course {
 
     String tittle
 
     String description
 
-    AcademyCourseType courseType
+    CourseType courseType
 
     static constraints = {
         tittle       blank: false

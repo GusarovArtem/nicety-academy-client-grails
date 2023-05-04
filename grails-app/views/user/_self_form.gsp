@@ -1,47 +1,47 @@
-<%@ page import="academy.user.AcademyUser" %>
+<%@ page import="academy.user.User" %>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    required="true"
                    field="name">
     <g:textField name="name" required="required" value="${userInstance?.name}"/>
-</academyForm:field>
+</form:field>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    required="true"
                    field="surname">
     <g:textField name="surname" required="required" value="${userInstance?.surname}"/>
-</academyForm:field>
+</form:field>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    field="email">
     <g:textField name="email" value="${userInstance?.email}"/>
-</academyForm:field>
+</form:field>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    field="phoneNumber">
     <g:textField name="phoneNumber" value="${userInstance?.phoneNumber}"/>
-</academyForm:field>
+</form:field>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    field="englishLevel">
     <g:textField name="englishLevel" value="${userInstance?.englishLevel}"/>
-</academyForm:field>
+</form:field>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    required="true"
                    field="password">
     <g:passwordField name="password" required="" value="${userInstance?.password}"/>
-</academyForm:field>
+</form:field>
 
-<academyForm:field bean="${userInstance}"
-                   originalEntity="${AcademyUser}"
+<form:field bean="${userInstance}"
+                   originalEntity="${User}"
                    required="true"
                    field="passwordConfirm">
     <g:passwordField name="passwordConfirm" required="" value="${userInstance?.passwordConfirm}"/>
-</academyForm:field>
+</form:field>

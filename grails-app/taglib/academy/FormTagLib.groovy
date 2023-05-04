@@ -2,9 +2,9 @@ package academy
 
 import grails.util.GrailsNameUtils
 
-class AcademyFormTagLib implements AcademyTagLibTrait {
+class FormTagLib implements TagLibTrait {
 
-    static namespace = "academyForm"
+    static namespace = "form"
 
     def field = { attrs, body ->
         if (attrs.removeIf) {

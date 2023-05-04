@@ -2,9 +2,9 @@ package academy
 
 import grails.plugin.springsecurity.SpringSecurityUtils
 
-class AcademyMenuTagLib implements AcademyTagLibTrait {
+class MenuTagLib implements TagLibTrait {
 
-    static namespace = "academyMenu"
+    static namespace = "menu"
 
     def leaf = { attrs, body ->
         if (!attrs.access || SpringSecurityUtils.ifAnyGranted(attrs.access)) {

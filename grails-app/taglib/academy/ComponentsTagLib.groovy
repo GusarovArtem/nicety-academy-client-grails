@@ -1,8 +1,8 @@
 package academy
 
-class AcademyComponentsTagLib implements AcademyTagLibTrait  {
+class ComponentsTagLib implements TagLibTrait  {
 
-    static namespace = "academyComponents"
+    static namespace = "components"
 
     def checkbox = { attrs, body ->
         def params = [

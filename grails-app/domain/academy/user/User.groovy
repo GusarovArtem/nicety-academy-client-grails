@@ -1,13 +1,12 @@
 package academy.user
 
 
-import academy.user.role.AcademyRole
-import academy.user.role.AcademyUserRole
+import academy.user.role.UserRole
 import org.apache.commons.lang3.StringUtils
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 
-class AcademyUser {
+class User {
 
     def springSecurityService
 
@@ -23,9 +22,9 @@ class AcademyUser {
 
     String phoneNumber
 
-    AcademyUserType userType
+    UserType userType
 
-    AcademyEnglishLevel englishLevel
+    EnglishLevel englishLevel
 
     boolean enabled
     boolean accountExpired
@@ -43,8 +42,8 @@ class AcademyUser {
             String login = value.trim()
 
             def notUnique
-            if (AcademyUser.findAllByEmail(login).find { it.id != user.id }) {
-                notUnique = ['AcademyUser.email.unique']
+            if (User.findAllByEmail(login).find { it.id != user.id }) {
+                notUnique = ['User.email.unique']
             }
             if (notUnique) {
                 return notUnique
@@ -73,7 +72,7 @@ class AcademyUser {
     }
 
     Collection<GrantedAuthority> authorities() {
-        AcademyUserRole.findAllByUser(this).collect {
+        UserRole.findAllByUser(this).collect {
             new SimpleGrantedAuthority(it.role.authority)
         }
     }

@@ -1,22 +1,22 @@
 package academy.user.staff.administration
 
-import academy.user.AcademyUserControllerTrait
+import academy.user.UserControllerTrait
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_ADMIN'])
 @Transactional(readOnly = true)
-class AcademyAdminController implements AcademyUserControllerTrait {
+class AdminController implements UserControllerTrait {
 
     def userDomainClass() {
-        return AcademyAdmin
+        return Admin
     }
 
     def index(Integer max) {
         _index(max)
     }
 
-    def show(AcademyAdmin userInstance) {
+    def show(Admin userInstance) {
         _show(userInstance)
     }
 
@@ -25,25 +25,25 @@ class AcademyAdminController implements AcademyUserControllerTrait {
     }
 
     @Transactional
-    def save(AcademyAdmin userInstance) {
+    def save(Admin userInstance) {
         _save(userInstance)
     }
 
-    def edit(AcademyAdmin userInstance) {
+    def edit(Admin userInstance) {
         _edit(userInstance)
     }
 
-    def selfEdit(AcademyAdmin userInstance) {
+    def selfEdit(Admin userInstance) {
         _selfEdit(userInstance)
     }
 
     @Transactional
-    def update(AcademyAdmin userInstance) {
+    def update(Admin userInstance) {
         _update(userInstance)
     }
 
     @Transactional
-    def selfUpdate(AcademyAdmin userInstance) {
+    def selfUpdate(Admin userInstance) {
         _selfUpdate(userInstance)
     }
 }

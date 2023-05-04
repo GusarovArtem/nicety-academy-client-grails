@@ -1,9 +1,9 @@
 package academy.user
 
-import academy.trait.AcademyControllerTrait
-import academy.user.role.AcademyUserRole
+import academy.trait.ControllerTrait
+import academy.user.role.UserRole
 
-trait AcademyUserControllerTrait implements AcademyControllerTrait {
+trait UserControllerTrait implements ControllerTrait {
 
     @Override
     def targetDomainClass() {
@@ -22,7 +22,7 @@ trait AcademyUserControllerTrait implements AcademyControllerTrait {
                        userInstanceList : userInstanceList], view: '/user/index'
     }
 
-    def _show(AcademyUser userInstance) {
+    def _show(User userInstance) {
         userInstance.clearErrors()
         render model: [userInstance: userInstance], view: '/user/show'
     }
@@ -32,7 +32,7 @@ trait AcademyUserControllerTrait implements AcademyControllerTrait {
                 .newInstance(params)], view: '/user/create'
     }
 
-    def _save(AcademyUser userInstance) {
+    def _save(User userInstance) {
         if (!userInstance) {
             notFound()
             return
@@ -48,30 +48,30 @@ trait AcademyUserControllerTrait implements AcademyControllerTrait {
         }
 
         userInstance.save flush: true
-        AcademyUserRole.create(userInstance, true)
+        UserRole.create(userInstance, true)
 
         showMessage(userInstance, "default.created.message")
         redirect userInstance
     }
 
 
-    def _edit(AcademyUser userInstance) {
+    def _edit(User userInstance) {
         render model: [userInstance: userInstance], view: '/user/edit'
     }
 
-    def _selfEdit(AcademyUser userInstance) {
+    def _selfEdit(User userInstance) {
         render model: [userInstance: userInstance], view: '/user/self_edit'
     }
 
-    def _update(AcademyUser userInstance) {
+    def _update(User userInstance) {
         update(userInstance, "/user/edit")
     }
 
-    def _selfUpdate(AcademyUser userInstance) {
+    def _selfUpdate(User userInstance) {
         update(userInstance, "/user/self_edit")
     }
 
-    private update(AcademyUser userInstance, view) {
+    private update(User userInstance, view) {
         if (userInstance == null) {
             notFound()
             return

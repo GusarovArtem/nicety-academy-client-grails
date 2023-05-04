@@ -1,8 +1,8 @@
 package academy
 
-class AcademyButtonsTagLib implements AcademyTagLibTrait {
+class ButtonsTagLib implements TagLibTrait {
 
-    static namespace = "academyButtons"
+    static namespace = "buttons"
 
     def buttonToolbar = { attrs, body ->
         markup.div(class: "btn-toolbar", style: attrs.style) {

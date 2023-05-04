@@ -3,9 +3,9 @@ package academy
 import academy.utils.Collections
 
 
-class AcademyMessagesTagLib implements AcademyTagLibTrait  {
+class MessagesTagLib implements TagLibTrait  {
 
-    static namespace = "academyMessages"
+    static namespace = "messages"
 
     def showFlash = { attrs, body ->
         def flash = attrs.flash

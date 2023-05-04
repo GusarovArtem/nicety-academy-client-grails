@@ -1,6 +1,6 @@
 package academy.course
 
-class AcademyCourseType {
+class CourseType {
 
     String tittle
 
