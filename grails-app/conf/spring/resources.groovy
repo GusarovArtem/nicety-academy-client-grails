@@ -1,4 +1,5 @@
 import academy.jwt.JwtAuthProviderService
+import org.springframework.context.annotation.Bean
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor
 
@@ -12,12 +13,7 @@ beans = {
     }
 }
 
-springWebsocket {
-    handshakeInterceptors = [new HttpSessionHandshakeInterceptor()]
-    endpoints {
-        chat {
-            uri = "/chat"
-            bean = "chatEndpoint"
-        }
-    }
+@Bean
+HttpSessionHandshakeInterceptor httpSessionHandshakeInterceptor() {
+    new HttpSessionHandshakeInterceptor()
 }

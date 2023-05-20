@@ -1,9 +1,9 @@
 package academy.user.staff.management
 
-import academy.user.User
+import academy.user.AcademyUser
 import academy.user.UserType
 
-class ClientManager extends User {
+class ClientManager extends AcademyUser {
 
     {
         this.userType = UserType.CLIENT_MANAGER

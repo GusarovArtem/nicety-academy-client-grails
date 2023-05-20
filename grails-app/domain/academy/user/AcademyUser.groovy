@@ -6,17 +6,12 @@ import org.apache.commons.lang3.StringUtils
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 
-class User {
-
-    def springSecurityService
+class AcademyUser {
 
     String name
     String surname
 
     String email
-
-    String password
-    String passwordConfirm
 
     Date createdOn
 
@@ -35,27 +30,19 @@ class User {
         autowire true
     }
 
-    static transients = ['springSecurityService', 'passwordConfirm']
-
     static constraints = {
         email(blank: false, email: true, validator: { value, user ->
             String login = value.trim()
 
             def notUnique
-            if (User.findAllByEmail(login).find { it.id != user.id }) {
-                notUnique = ['User.email.unique']
+            if (AcademyUser.findAllByEmail(login).find { it.id != user.id }) {
+                notUnique = ['AcademyUser.email.unique']
             }
             if (notUnique) {
                 return notUnique
             }
 
             true
-        })
-
-        password(nullable: false, blank: false, password: true)
-        passwordConfirm(nullable: false, blank: false, bindable: true, password: true, validator: { val, obj ->
-            obj.password == val ? true :
-                    ['invalid.matchingpasswords']
         })
 
         name         blank: false
@@ -82,19 +69,7 @@ class User {
     }
 
     def beforeInsert() {
-        encodePassword()
         capitalizeName()
-    }
-
-    def beforeUpdate() {
-        if (password != null && isDirty('password') && validate()) {
-            encodePassword()
-        }
-    }
-
-    protected void encodePassword() {
-        password = springSecurityService.encodePassword(password)
-        passwordConfirm = password
     }
 
     protected void capitalizeName() {
