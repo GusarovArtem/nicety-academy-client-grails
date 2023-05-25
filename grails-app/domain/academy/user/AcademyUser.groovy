@@ -22,9 +22,6 @@ class AcademyUser {
     EnglishLevel englishLevel
 
     boolean enabled
-    boolean accountExpired
-    boolean passwordExpired
-    boolean accountLocked
 
     static mapping = {
         autowire true
@@ -62,10 +59,6 @@ class AcademyUser {
         UserRole.findAllByUser(this).collect {
             new SimpleGrantedAuthority(it.role.authority)
         }
-    }
-
-    def afterLoad() {
-        passwordConfirm = password
     }
 
     def beforeInsert() {
