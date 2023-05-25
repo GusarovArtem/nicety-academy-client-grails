@@ -151,7 +151,7 @@ grails:
         endpoints:
             /chat:
                 handler:
-                    academy.chat.websocket.ChatWebSocketHandler
+                    academy.communication.websocket.chat.ChatWebSocketService
     cache:
         enabled: true
         ehcache:
